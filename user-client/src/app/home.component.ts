@@ -2,6 +2,18 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
-  template: `<p *feature="'home-v2'">Home V2</p>`,
+  template: `
+    <ng-container
+      [ngTemplateOutlet]="('home-v2' | appFeature) ? v2 : v1"
+    ></ng-container>
+
+    <ng-template #v1>
+      <h1>Home V1</h1>
+    </ng-template>
+
+    <ng-template #v2>
+      <h1>Home V2</h1>
+    </ng-template>
+  `,
 })
 export class HomeComponent {}

@@ -4,14 +4,14 @@ import {
   ModuleWithProviders,
   NgModule,
 } from '@angular/core';
-import { FeatureDirective } from './feature.directive';
+import { FeaturePipe } from './feature.pipe';
 import { FeaturesResolver } from './features.resolver';
 import { GrowthBookService } from './growth-book.service';
 import { GrowthBookConfig } from './types';
 
 @NgModule({
-  declarations: [FeatureDirective],
-  exports: [FeatureDirective],
+  declarations: [FeaturePipe],
+  exports: [FeaturePipe],
   providers: [GrowthBookService, FeaturesResolver],
 })
 export class GrowthBookModule {
