@@ -1,13 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { environment } from 'src/environments';
 import { AppComponent } from './app.component';
-import { FeatureDirective } from './core/growth-book/feature.directive';
+import { GrowthBookModule } from './core/growth-book';
 
 @NgModule({
-  declarations: [AppComponent, FeatureDirective],
-  imports: [CommonModule, BrowserModule, HttpClientModule],
+  declarations: [AppComponent],
+  imports: [
+    CommonModule,
+    BrowserModule,
+    GrowthBookModule.forRoot({
+      apiHost: 'http://localhost:3100',
+      clientKey: 'sdk-sohtXJJ0iCeYyFW',
+      enableDevMode: !environment.production,
+    }),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

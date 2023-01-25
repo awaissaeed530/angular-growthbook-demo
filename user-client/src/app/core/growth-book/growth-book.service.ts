@@ -1,28 +1,20 @@
 import { Injectable } from '@angular/core';
 import { GrowthBook } from '@growthbook/growthbook';
-import { environment } from 'src/environments';
+import { GrowthBookConfig } from './types';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class GrowthBookService {
   private growthBook: GrowthBook;
 
-  init(): void {
-    this.growthBook = new GrowthBook({
-      apiHost: 'http://localhost:3100',
-      clientKey: 'sdk-sohtXJJ0iCeYyFW',
-      enableDevMode: !environment.production,
-    });
-
-    this.loadFeatures();
+  init(config: GrowthBookConfig): void {
+    this.growthBook = new GrowthBook(config);
   }
 
-  isOn(name: string): boolean {
-    return this.growthBook.isOn(name);
+  isOn(featureKey: string): boolean {
+    return this.growthBook.isOn(featureKey);
   }
 
-  private loadFeatures(): void {
-    this.growthBook.loadFeatures({ autoRefresh: true });
+  loadFeatures(): Promise<void> {
+    return this.growthBook.loadFeatures({ autoRefresh: true });
   }
 }
