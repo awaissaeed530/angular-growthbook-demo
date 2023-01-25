@@ -23,8 +23,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
 
     GrowthBookModule.forRoot({
-      apiHost: 'http://localhost:3100',
-      clientKey: 'sdk-sohtXJJ0iCeYyFW',
+      apiHost: environment.growthBook.apiHost,
+      clientKey: environment.growthBook.clientKey,
       enableDevMode: !environment.production,
     }),
   ],

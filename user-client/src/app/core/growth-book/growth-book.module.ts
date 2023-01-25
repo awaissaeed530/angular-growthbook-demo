@@ -4,10 +4,10 @@ import {
   ModuleWithProviders,
   NgModule,
 } from '@angular/core';
+import { Context as Config } from '@growthbook/growthbook';
 import { FeaturePipe } from './feature.pipe';
 import { FeaturesResolver } from './features.resolver';
 import { GrowthBookService } from './growth-book.service';
-import { GrowthBookConfig } from './types';
 
 @NgModule({
   declarations: [FeaturePipe],
@@ -15,9 +15,7 @@ import { GrowthBookConfig } from './types';
   providers: [GrowthBookService, FeaturesResolver],
 })
 export class GrowthBookModule {
-  static forRoot(
-    config: GrowthBookConfig
-  ): ModuleWithProviders<GrowthBookModule> {
+  static forRoot(config: Config): ModuleWithProviders<GrowthBookModule> {
     return {
       ngModule: GrowthBookModule,
       providers: [

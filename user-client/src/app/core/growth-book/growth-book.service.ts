@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { GrowthBook } from '@growthbook/growthbook';
-import { GrowthBookConfig } from './types';
+import { Context as Config, GrowthBook } from '@growthbook/growthbook';
 
 @Injectable()
 export class GrowthBookService {
   private growthBook: GrowthBook;
 
-  init(config: GrowthBookConfig): void {
+  init(config: Config): void {
     this.growthBook = new GrowthBook(config);
   }
 
