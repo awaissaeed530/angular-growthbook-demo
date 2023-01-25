@@ -3,13 +3,10 @@ import { GrowthBookService } from './core/growth-book';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `<p *feature="'home-v2'">Hello World!</p>`,
 })
 export class AppComponent {
-  title = 'user-client';
-
   constructor(private readonly _growthBookService: GrowthBookService) {
-    _growthBookService.init();
+    this._growthBookService.init();
   }
 }
