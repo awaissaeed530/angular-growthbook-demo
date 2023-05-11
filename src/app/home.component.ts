@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   template: `
     <ng-container
-      [ngTemplateOutlet]="('home-v2' | appFeature) ? v2 : v1"
+      [ngTemplateOutlet]="('home-v2' | gbFeature) ? v2 : v1"
     ></ng-container>
 
     <ng-template #v1>
