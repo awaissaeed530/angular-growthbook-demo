@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { environment } from 'src/environments';
 import { AppComponent } from './app.component';
-import { FeaturesResolver, GrowthBookModule } from './core';
+import { GrowthBookModule, GrowthBookService } from './core';
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [
   {
     path: '',
-    resolve: { features: FeaturesResolver },
+    resolve: { features: () => inject(GrowthBookService).loadFeatures() },
     children: [{ path: '', component: HomeComponent }],
   },
 ];

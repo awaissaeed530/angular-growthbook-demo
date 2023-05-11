@@ -6,13 +6,12 @@ import {
 } from '@angular/core';
 import { Context as Config } from '@growthbook/growthbook';
 import { FeaturePipe } from './feature.pipe';
-import { FeaturesResolver } from './features.resolver';
 import { GrowthBookService } from './growth-book.service';
 
 @NgModule({
   declarations: [FeaturePipe],
   exports: [FeaturePipe],
-  providers: [GrowthBookService, FeaturesResolver],
+  providers: [GrowthBookService],
 })
 export class GrowthBookModule {
   static forRoot(config: Config): ModuleWithProviders<GrowthBookModule> {
