@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { GrowthBookService } from './growth-book.service';
 
-export function resolveFeatures() {
-  inject(GrowthBookService).loadFeatures();
+export function resolveFeatures(): Promise<void> {
+  return inject(GrowthBookService).loadFeatures();
 }
